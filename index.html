@@ -269,13 +269,7 @@ setTimeout(poc,1500);
 
 
 
-function load_app2usb(){
-var script = document.createElement('script');script.src = "app2usb.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + App2USB... Please Wait !!!"
-LoadedMSG="App2USB Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
+
 
 function load_dbackup(){
 var script = document.createElement('script');script.src = "backup.js";document.getElementsByTagName('head')[0].appendChild(script);
@@ -407,6 +401,13 @@ function load_ftp(){
 var script = document.createElement('script');script.src = "theme0003.js";document.getElementsByTagName('head')[0].appendChild(script);
 msgs.innerHTML="Downloading Theme 3D Icons ! Please Wait ..."
 LoadedMSG="3D Icons Theme Loaded...";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_app2usb(){
+var script = document.createElement('script');script.src = "theme0004.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Theme Wood ! Please Wait ..."
+LoadedMSG="Wood Theme Loaded...";
 run_jb = "payload";
 setTimeout(poc,1500);
 }
