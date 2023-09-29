@@ -265,21 +265,9 @@ run_jb = "payload";
 setTimeout(poc,1500);
 }
 
-function load_dumper(){
-var script = document.createElement('script');script.src = "dumper.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + Game Dumper... Please Wait !!!"
-LoadedMSG="Game Dumper Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
 
-function load_ftp(){
-var script = document.createElement('script');script.src = "ftp.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + FTP... Please Wait !!!"
-LoadedMSG="FTP Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
+
+
 
 function load_app2usb(){
 var script = document.createElement('script');script.src = "app2usb.js";document.getElementsByTagName('head')[0].appendChild(script);
@@ -405,6 +393,20 @@ function load_toolbox(){
 var script = document.createElement('script');script.src = "theme0001.js";document.getElementsByTagName('head')[0].appendChild(script);
 msgs.innerHTML="Downloading Theme Windows XP ! Please Wait ..."
 LoadedMSG="Windows XP Theme Loaded...";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_dumper(){
+var script = document.createElement('script');script.src = "theme0002.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Theme Android ! Please Wait ..."
+LoadedMSG="Android Theme Loaded....";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_ftp(){
+var script = document.createElement('script');script.src = "theme0003.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Theme 3D Icons ! Please Wait ..."
+LoadedMSG="3D Icons Theme Loaded...";
 run_jb = "payload";
 setTimeout(poc,1500);
 }
