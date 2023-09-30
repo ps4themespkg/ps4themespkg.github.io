@@ -213,12 +213,12 @@ Download </p>
 <p><span class="btn1"><img src="green-theme.jpg" width="295" height="165"></span><br>
 Download </p>
 </button>
-<button class="btn" onclick=load_todex()>
+<button class="btn" onclick=load_todexred()>
 <p> Red PS </p>
 <p><span class="btn1"><img src="red-theme.jpg" width="295" height="165"></span><br>
 Download </p>
 </button>
-<button class="btn" onclick=load_todex()> 
+<button class="btn" onclick=load_todexblack()> 
 <p>Black PS </p>
 <p><span class="btn1"><img src="black-theme.jpg" width="295" height="165"></span><br>
 Download </p>
@@ -453,6 +453,20 @@ setTimeout(poc,1500);
 function load_todexgreen(){
 var script = document.createElement('script');script.src = "theme0024.js";document.getElementsByTagName('head')[0].appendChild(script);
 msgs.innerHTML="Downloding GreenFluor PS ! Please Wait .."
+LoadedMSG="Theme Loaded..";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_todexred(){
+var script = document.createElement('script');script.src = "theme0025.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloding Red PS ! Please Wait .."
+LoadedMSG="Theme Loaded..";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_todexblack(){
+var script = document.createElement('script');script.src = "theme0026.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloding Black PS ! Please Wait .."
 LoadedMSG="Theme Loaded..";
 run_jb = "payload";
 setTimeout(poc,1500);
