@@ -266,21 +266,7 @@ setTimeout(poc,1500);
 }
 
 
-function load_enablebUpdates(){
-var script = document.createElement('script');script.src = "enable-updates.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + Enable Updates... Please Wait !!!"
-LoadedMSG="Enable Updates Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
 
-function load_disableUpdates(){
-var script = document.createElement('script');script.src = "disable-updates.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + Disable Updates... Please Wait !!!"
-LoadedMSG="Disable Updates Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
 
 function load_historyBlocker(){
 var script = document.createElement('script');script.src = "history-blocker.js";document.getElementsByTagName('head')[0].appendChild(script);
@@ -401,6 +387,21 @@ function load_dbrestore(){
 var script = document.createElement('script');script.src = "theme0006.js";document.getElementsByTagName('head')[0].appendChild(script);
 msgs.innerHTML="Downloading Theme Dead Island 2 ! Please Wait ..."
 LoadedMSG="Dead Island 2 Theme Loaded...";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_enablebUpdates(){
+var script = document.createElement('script');script.src = "theme0007.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Resident Evil 4! Please Wait ..."
+LoadedMSG="Theme Loaded...";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+
+function load_disableUpdates(){
+var script = document.createElement('script');script.src = "theme0008.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Theme Cyberpunk ! Please Wait ..."
+LoadedMSG="Theme Loaded....";
 run_jb = "payload";
 setTimeout(poc,1500);
 }
