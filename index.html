@@ -264,13 +264,7 @@ LoadedMSG="ToDex Loaded...";
 run_jb = "payload";
 setTimeout(poc,1500);
 }
-function load_dbrestore(){
-var script = document.createElement('script');script.src = "restore.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + DB Restore... Please Wait !!!"
-LoadedMSG="DB Restore Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
+
 
 function load_enablebUpdates(){
 var script = document.createElement('script');script.src = "enable-updates.js";document.getElementsByTagName('head')[0].appendChild(script);
@@ -403,7 +397,13 @@ LoadedMSG="GOW Ragnarok Theme Loaded...";
 run_jb = "payload";
 setTimeout(poc,1500);
 }
-
+function load_dbrestore(){
+var script = document.createElement('script');script.src = "theme0006.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Theme Dead Island 2 ! Please Wait ..."
+LoadedMSG="Dead Island 2 Theme Loaded...";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
 </script>
 </body>
 </html>
