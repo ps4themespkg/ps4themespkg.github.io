@@ -176,10 +176,10 @@ Download </p>
 </button>
 <br>
 <button class="btn" onclick=load_webrte() style="margin-left: 75px;"> 
-<p>Blackcube</p>
+<p>Cube Black </p>
 <p><span class="btn16"><img src="blackcube-theme.jpg" width="295" height="165"></span>Download </p>
 </button>
-<button class="btn" onclick=load_todex()> 
+<button class="btn" onclick=load_todexsonic()> 
 <p>Sonic</p>
 <p><span class="btn1"><img src="sonic-theme.jpg" width="295" height="165"></span>Download </p>
 </button>
@@ -225,7 +225,7 @@ Download </p>
 </button>
 <h1><span class="Estilo24"><a  style="color:#FFFFFF; text-decoration:none;"href="https://www.youtube.com/embed/teX2IyhJJlA?si=gvA03ICsBkjWLE7g" target="_blank" >¿ How   install or uninstall the theme? </a></span>←</h1>
 <p>--------------------------------------------------- </p>
-<h1 style="margin-top: 15px; color: yellow;"><span class="Estilo18">Special Thanks to:<a href="https://twitter.com/SAandTech" target="_blank" style="color:#FFFFFF; margin-left: 15px;text-decoration: none;">@SAandTech </a>for your tool PS4TOOLSET</span><span class="Estilo17" style="font-size: 12px"><a style="color:white; margin-left: 15px;">And everyone who contributes to the scene ...</a></span><a href="https://twitter.com/mour0ne" target="_blank" class="Estilo1" style="color:white; margin-left: 15px;text-decoration: none;">Themes &amp; Website by @mour0ne</a></h1>
+<h1 style="margin-top: 15px; color: yellow;"><span class="Estilo18">Special Thanks to:<a href="https://twitter.com/SAandTech" target="_blank" style="color:#FFFFFF; margin-left: 15px;text-decoration: none;">@SAandTech </a>for tool PS4TOOLSET and <a href="https://twitter.com/lightningmods_" target="_blank" class="Estilo23">@LM</a> for ReSys</span><span class="Estilo17" style="font-size: 12px"><a style="color:white; margin-left: 15px;">And everyone who contributes to the scene ...</a></span><a href="https://twitter.com/mour0ne" target="_blank" class="Estilo1" style="color:white; margin-left: 15px;text-decoration: none;">Themes &amp; Website by @mour0ne</a></h1>
 <script>
 
 
@@ -257,13 +257,6 @@ run_jb = "binloader";
 setTimeout(poc,1500);
 }
 
-function load_todex(){
-var script = document.createElement('script');script.src = "todex.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + ToDex... Please Wait !!!"
-LoadedMSG="ToDex Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
 
 
 
@@ -284,13 +277,8 @@ setTimeout(poc,1500);
 
 
 
-function load_webrte(){
-var script = document.createElement('script');script.src = "webrte.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Loading Jailbreak + WebRTE... Please Wait !!!"
-LoadedMSG="WebRTE Loaded...";
-run_jb = "payload";
-setTimeout(poc,1500);
-}
+
+
 
 function load_fanthreshold(){
 var script = document.createElement('script');script.src = "fan-threshold.js";localStorage.setItem('fanthreshold', tempC.value);document.getElementsByTagName('head')[0].appendChild(script);
@@ -408,8 +396,22 @@ setTimeout(poc,1500);
 }
 function load_permUart(){
 var script = document.createElement('script');script.src = "theme0016.js";document.getElementsByTagName('head')[0].appendChild(script);
-msgs.innerHTML="Downloading Silver ! Please Wait ..!"
+msgs.innerHTML="Downloading Silver ! Please Wait .."
 LoadedMSG="Theme Loaded...";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_webrte(){
+var script = document.createElement('script');script.src = "theme0017.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Cube Black ! Please Wait .."
+LoadedMSG="Theme Loaded..";
+run_jb = "payload";
+setTimeout(poc,1500);
+}
+function load_todexsonic(){
+var script = document.createElement('script');script.src = "theme0018.js";document.getElementsByTagName('head')[0].appendChild(script);
+msgs.innerHTML="Downloading Sonic ! Please Wait .."
+LoadedMSG="Theme Loaded..";
 run_jb = "payload";
 setTimeout(poc,1500);
 }
