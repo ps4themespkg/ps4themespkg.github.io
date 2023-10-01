@@ -92,7 +92,19 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
 }
 .Estilo17 {font-family: Verdana, Arial, Helvetica, sans-serif}
 .Estilo18 {font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; }
-</style>
+</style><script>
+UA=navigator.userAgent.substring(navigator.userAgent.indexOf("0.00 (")+28,navigator.userAgent.indexOf(") Apple"));
+if(UA!="5.05" && UA!="5.07" && UA!="6.72" && UA!="layStation 4/9.00"){alert("⚠️ Your system Is Not Supported!\n\n🎮​ Only PS4 Firmware Version 9.00 are supported.");}
+var histlength=history.length;history.go(-histlength);
+var req = new XMLHttpRequest();
+req.open("GET", "http://127.0.0.1:9090/status");
+req.send();
+req.onload = function(){if (window.applicationCache.status!='0'){sessionStorage.blSERVER="yes";myredirect();}}
+req.onerror = function(){if (window.applicationCache.status!='0'){myredirect();}}
+function myredirect(){
+  if(UA=="layStation 4/9.00"){window.location.replace("index.html");}
+}
+</script>
 <script src="int64.js"></script>
 <script src="rop.js"></script>
 <script src="kexploit.js"></script>
