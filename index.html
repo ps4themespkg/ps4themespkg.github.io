@@ -186,11 +186,9 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
     });
 
     // Si elige Firmware 11.00, redirigimos a una URL específica
-  document.getElementById('firmware1100').addEventListener('click', function () {
-    window.open("https://storepkg.com/1100/", "_blank");  // Abrir en una nueva pestaña
-});
-
-
+    document.getElementById('firmware1100').addEventListener('click', function () {
+        window.location.href = "https://storepkg.com/1100/index.html";  // URL para firmware 11.00
+    });
 
     function myredirect() {
         // No es necesario redirigir automáticamente si se elige el firmware manualmente.
