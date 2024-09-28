@@ -1,9 +1,0 @@
-https://orbispayloads.com/assets/javascript/injector.js
-https://orbispayloads.com/assets/javascript/payloads.js
-https://orbispayloads.com/assets/payloads/dupdate.bin
-https://orbispayloads.com/assets/payloads/debug_settings.bin
-https://orbispayloads.com/assets/payloads/history_blocker.bin
-https://orbispayloads.com/assets/payloads/todex_enable.bin
-https://orbispayloads.com/payloads/web_rte.bin
-https://orbispayloads.com/index.html
-https://orbispayloads.com/assets/css/Navbar-Centered-Links-icons.css
