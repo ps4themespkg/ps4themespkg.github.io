@@ -97,18 +97,94 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
 }
 .Estilo17 {font-family: Verdana, Arial, Helvetica, sans-serif}
 .Estilo18 {font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; }
-</style><script>
-UA=navigator.userAgent.substring(navigator.userAgent.indexOf("0.00 (")+28,navigator.userAgent.indexOf(") Apple"));
-if(UA!="5.05" && UA!="5.07" && UA!="6.72" && UA!="layStation 4/9.00"){alert("⚠️ Your system Is Not Supported!\n\n🎮​ Only PS4 Firmware Version 9.00 are supported.");}
-var histlength=history.length;history.go(-histlength);
-var req = new XMLHttpRequest();
-req.open("GET", "http://127.0.0.1:9090/status");
-req.send();
-req.onload = function(){if (window.applicationCache.status!='0'){sessionStorage.blSERVER="yes";myredirect();}}
-req.onerror = function(){if (window.applicationCache.status!='0'){myredirect();}}
-function myredirect(){
-  if(UA=="layStation 4/9.00"){window.location.replace("index.html");}
-}
+</style><style>
+        /* Estilos para el cuadro de diálogo personalizado */
+        #customDialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+        }
+        #customDialog button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #customDialog #firmware900 {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #customDialog #firmware1100 {
+            background-color: #f44336;
+            color: white;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+<!-- Cuadro de diálogo personalizado -->
+<div id="overlay"></div>
+<div id="customDialog">
+    <p>⚠️ Please choose your firmware version:</p>
+    <button id="firmware900">Firmware 9.00</button>
+    <button id="firmware1100">Firmware 11.00</button>
+</div>
+
+<script>
+    // Función para mostrar el cuadro de diálogo personalizado
+    function showCustomDialog() {
+        document.getElementById('customDialog').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    // Mostrar el cuadro de diálogo para que el usuario elija entre 9.00 y 11.00
+    showCustomDialog();
+
+    var histlength = history.length;
+    history.go(-histlength);
+    var req = new XMLHttpRequest();
+    req.open("GET", "http://127.0.0.1:9090/status");
+    req.send();
+    req.onload = function () {
+        if (window.applicationCache.status != '0') {
+            sessionStorage.blSERVER = "yes";
+            myredirect();
+        }
+    }
+    req.onerror = function () {
+        if (window.applicationCache.status != '0') {
+            myredirect();
+        }
+    }
+
+    // Función para redirigir basado en la elección del usuario
+    document.getElementById('firmware900').addEventListener('click', function () {
+        window.location.href = "https://example.com/firmware900";  // URL para firmware 9.00
+    });
+
+    document.getElementById('firmware1100').addEventListener('click', function () {
+        window.location.href = "https://example.com/firmware1100";  // URL para firmware 11.00
+    });
+
+    function myredirect() {
+        // No es necesario redirigir automáticamente si se elige el firmware manualmente.
+    }
 </script>
 <script src="int64.js"></script>
 <script src="rop.js"></script>
