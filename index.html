@@ -148,50 +148,54 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
 </div>
 
 <script>
-    // Función para mostrar el cuadro de diálogo personalizado
-    function showCustomDialog() {
-        document.getElementById('customDialog').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
-    }
-
-    // Mostrar el cuadro de diálogo para que el usuario elija entre 9.00 y 11.00
-    showCustomDialog();
-
-    var histlength = history.length;
-    history.go(-histlength);
-    var req = new XMLHttpRequest();
-    req.open("GET", "http://127.0.0.1:9090/status");
-    req.send();
-    req.onload = function () {
-        if (window.applicationCache.status != '0') {
-            sessionStorage.blSERVER = "yes";
-            myredirect();
+    // Verificamos si el usuario ya seleccionó la opción de firmware 11.00
+    if (sessionStorage.getItem('firmwareSelected') !== '11.00') {
+        // Función para mostrar el cuadro de diálogo personalizado
+        function showCustomDialog() {
+            document.getElementById('customDialog').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
         }
-    }
-    req.onerror = function () {
-        if (window.applicationCache.status != '0') {
-            myredirect();
+
+        // Mostrar el cuadro de diálogo para que el usuario elija entre 9.00 y 11.00
+        showCustomDialog();
+
+        var histlength = history.length;
+        history.go(-histlength);
+        var req = new XMLHttpRequest();
+        req.open("GET", "http://127.0.0.1:9090/status");
+        req.send();
+        req.onload = function () {
+            if (window.applicationCache.status != '0') {
+                sessionStorage.blSERVER = "yes";
+                myredirect();
+            }
         }
-    }
+        req.onerror = function () {
+            if (window.applicationCache.status != '0') {
+                myredirect();
+            }
+        }
 
-    // Función para cerrar el cuadro de diálogo y continuar en la página actual
-    function closeDialog() {
-        document.getElementById('customDialog').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
+        // Función para cerrar el cuadro de diálogo y continuar en la página actual
+        function closeDialog() {
+            document.getElementById('customDialog').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
 
-    // Si elige Firmware 9.00, cerramos el diálogo y continuamos en la misma página
-    document.getElementById('firmware900').addEventListener('click', function () {
-        closeDialog();  // Cerrar el cuadro de diálogo y continuar navegando
-    });
+        // Si elige Firmware 9.00, cerramos el diálogo y continuamos en la misma página
+        document.getElementById('firmware900').addEventListener('click', function () {
+            closeDialog();  // Cerrar el cuadro de diálogo y continuar navegando
+        });
 
-    // Si elige Firmware 11.00, redirigimos a una URL específica
-    document.getElementById('firmware1100').addEventListener('click', function () {
-        window.location.href = "https://ps4themespkg.github.io/1100/index.html";  // URL para firmware 11.00
-    });
+        // Si elige Firmware 11.00, redirigimos a la URL de ps4themes.store
+        document.getElementById('firmware1100').addEventListener('click', function () {
+            sessionStorage.setItem('firmwareSelected', '11.00');  // Guardar la elección de firmware 11.00
+            window.location.href = "http://ps4themes.store";  // Redirigir a la nueva URL
+        });
 
-    function myredirect() {
-        // No es necesario redirigir automáticamente si se elige el firmware manualmente.
+        function myredirect() {
+            // No es necesario redirigir automáticamente si se elige el firmware manualmente.
+        }
     }
 </script>
 <script src="int64.js"></script>
