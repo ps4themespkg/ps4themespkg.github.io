@@ -186,10 +186,10 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
     });
 
     // Si elige Firmware 11.00, redirigimos a una URL específica
-   document.getElementById('firmware1100').addEventListener('click', function () {
-    const timestamp = new Date().getTime();
-    window.location.href = "https://storepkg.com/1100/index.html?nocache=" + timestamp;
+  document.getElementById('firmware1100').addEventListener('click', function () {
+    window.open("https://storepkg.com/1100/index.html", "_blank");  // Abrir en una nueva pestaña
 });
+
 
 
     function myredirect() {
