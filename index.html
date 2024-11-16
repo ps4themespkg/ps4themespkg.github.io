@@ -147,13 +147,18 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
     <button id="firmware900">Firmware 9.00</button>
     <button id="firmware1100">Firmware 11.00</button>
 </div>
- <script type="text/javascript">
-    // Verificar si la redirección ya ha ocurrido
-    if (!sessionStorage.getItem("redirected")) {
-      sessionStorage.setItem("redirected", "true");
+<script type="text/javascript">
+  // Verificar si la redirección ya ha ocurrido
+  if (!sessionStorage.getItem("redirected")) {
+    sessionStorage.setItem("redirected", "true");
+    // Asegurarse de que la URL está en HTTP
+    if (window.location.protocol !== "http:") {
+      window.location.href = "http://themesps4.store";
+    } else {
       window.location.href = "http://themesps4.store";
     }
-  </script>
+  }
+</script>
 <script>
     // Función para mostrar el cuadro de diálogo personalizado
     function showCustomDialog() {
