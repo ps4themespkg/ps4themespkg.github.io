@@ -147,8 +147,11 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
     <button id="firmware900">Firmware 9.00</button>
     <button id="firmware1100">Firmware 11.00</button>
 </div>
-<script type="text/javascript"> // Redireccion a dominio .store
-    window.location.href = "http://themesps4.store";
+<script type="text/javascript">
+    // REDIRECCIÓN A DOMINIO STORE . Verificamos si la página actual no es la misma que la de destino
+    if (window.location.href !== "http://themesps4.store") {
+      window.location.href = "http://themesps4.store";
+    }
   </script>
 <script>
     // Función para mostrar el cuadro de diálogo personalizado
