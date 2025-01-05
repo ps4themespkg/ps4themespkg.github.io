@@ -6,13 +6,25 @@
 <style type="text/css">
 <!--
 .Estilo15 {
-    font-family: 'Montserrat', sans-serif; /* Fuente elegante y moderna */
-    color: yellow; /* Texto amarillo */
-    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFA500; /* Efecto neón */
-    font-size: 30px;
-    text-transform: uppercase; /* Hace el texto en mayúsculas */
-    letter-spacing: 2px; /* Espacio entre letras */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    color: yellow;
+    text-align: center;
+    font-size: 36px;
+    position: relative;
 }
+
+.Estilo15::after {
+    content: attr(data-text); /* Reflejo del texto */
+    position: absolute;
+    top: 100%; /* Justo debajo */
+    left: 0;
+    right: 0;
+    color: rgba(255, 255, 0, 0.3); /* Amarillo translúcido */
+    transform: scaleY(-1); /* Voltea verticalmente */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
 .Estilo5 {
 	color: #FF0000;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
