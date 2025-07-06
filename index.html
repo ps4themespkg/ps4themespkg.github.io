@@ -572,22 +572,22 @@ setTimeout(poc,1500);
   });
 </script>
 <!-- Notificación compacta moderna desde la derecha -->
-<div id="left-toast">⏳ Downloading...</div>
+<div id="left-toast">★ Downloading...</div>
 
 <style>
 #left-toast {
   position: fixed;
   bottom: 30px;
-  right: -320px; /* Oculto al inicio, saldrá desde la derecha */
-  background-color: rgba(20, 20, 20, 0.95);
-  color: #fff;
+  right: -320px; /* Oculto al inicio */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  color: #000; /* Texto negro */
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   padding: 12px 18px;
   border-radius: 8px 0 0 8px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
   z-index: 9999;
-  max-width: 250px;
+  max-width: 280px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -595,16 +595,15 @@ setTimeout(poc,1500);
   border-right: 4px solid #00b9fe;
 }
 </style>
-
 <script>
   function showLeftToastAuto(msg) {
     const toast = document.getElementById("left-toast");
-    toast.innerText = `⏳ Downloading "${msg}"...`;
-    toast.style.right = "20px"; // aparece desde la derecha
+    toast.innerText = `★ Downloading "${msg}"... Please wait...`;
+    toast.style.right = "20px"; // Aparece desde la derecha
 
-    clearTimeout(toast.hideTimer); // evita conflictos si ya estaba activo
+    clearTimeout(toast.hideTimer); // Reinicia si ya hay uno activo
     toast.hideTimer = setTimeout(() => {
-      toast.style.right = "-320px"; // se oculta
+      toast.style.right = "-320px"; // Oculta
     }, 4000);
   }
 
@@ -618,6 +617,7 @@ setTimeout(poc,1500);
     });
   });
 </script>
+
 
 
 </body>
