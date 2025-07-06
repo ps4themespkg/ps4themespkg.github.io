@@ -572,11 +572,12 @@ setTimeout(poc,1500);
   });
 </script>
 <div id="left-toast">⏳ Downloading Theme... Please wait...</div>
+
 <style>
 #left-toast {
   position: fixed;
   bottom: 20px;
-  left: -400px;
+  right: -400px; /* oculto al inicio, entra desde la derecha */
   background-color: #0c2340;
   color: white;
   font-family: 'Poppins', sans-serif;
@@ -585,9 +586,10 @@ setTimeout(poc,1500);
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
   z-index: 9999;
-  transition: left 0.4s ease;
+  transition: right 0.4s ease; /* animación desde la derecha */
 }
 </style>
+
 <script>
   // Mostrar notificación
   function showLeftToastAuto(msg) {
