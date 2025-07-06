@@ -562,15 +562,29 @@ run_jb = "payload";
 setTimeout(poc,1500);
 }
 </script>
-<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script>
-  kofiWidgetOverlay.draw('mouuu', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Support Me',
-    'floating-chat.donateButton.background-color': '#00b9fe',
-    'floating-chat.donateButton.text-color': '#fff'
-  });
-</script>
+<style>
+#paypal-donate-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background-color: #00b9fe;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+  z-index: 9999;
+  text-decoration: none;
+}
+#paypal-donate-btn:hover {
+  background-color: #0099cc;
+}
+</style>
+
+<a id="paypal-donate-btn" href="https://www.paypal.com/paypalme/mour0ne" target="_blank">
+  💖 Support Me
+</a>
 <!-- Notificación compacta moderna desde la derecha -->
 <div id="left-toast">★ Downloading... Please wait...</div>
 
