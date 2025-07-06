@@ -571,43 +571,43 @@ setTimeout(poc,1500);
     'floating-chat.donateButton.text-color': '#fff'
   });
 </script>
+<!-- Notificación compacta moderna desde la derecha -->
 <div id="left-toast">⏳ Downloading...</div>
 
 <style>
 #left-toast {
   position: fixed;
   bottom: 30px;
-  left: -320px; /* Oculto inicialmente */
+  right: -320px; /* Oculto al inicio, saldrá desde la derecha */
   background-color: rgba(20, 20, 20, 0.95);
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   padding: 12px 18px;
-  border-radius: 8px 8px 8px 0;
+  border-radius: 8px 0 0 8px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
   z-index: 9999;
   max-width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: left 0.4s ease;
-  border-left: 4px solid #00b9fe;
+  transition: right 0.4s ease;
+  border-right: 4px solid #00b9fe;
 }
 </style>
 
 <script>
-  // Mostrar notificación moderna desde la izquierda
   function showLeftToastAuto(msg) {
     const toast = document.getElementById("left-toast");
     toast.innerText = `⏳ Downloading "${msg}"...`;
-    toast.style.left = "20px"; // aparece con animación
-    clearTimeout(toast.hideTimer); // si hay uno anterior
+    toast.style.right = "20px"; // aparece desde la derecha
+
+    clearTimeout(toast.hideTimer); // evita conflictos si ya estaba activo
     toast.hideTimer = setTimeout(() => {
-      toast.style.left = "-320px"; // se oculta
+      toast.style.right = "-320px"; // se oculta
     }, 4000);
   }
 
-  // Detectar clics en todos los botones de theme
   document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll("button.btn");
     buttons.forEach(btn => {
