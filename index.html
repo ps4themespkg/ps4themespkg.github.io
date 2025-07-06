@@ -561,13 +561,14 @@ run_jb = "payload";
 setTimeout(poc,1500);
 }
 </script>
+<!-- Notificación supportme -->
 <style>
 #paypal-donate-btn {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  background-color: #00b9fe;
-  color: #fff;
+  position: fixed !important;
+  bottom: 30px !important;
+  left: 30px !important;
+  background-color: white;
+  color: black;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   padding: 12px 18px;
@@ -575,17 +576,28 @@ setTimeout(poc,1500);
   box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
   z-index: 9999;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  border: 2px solid black;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 #paypal-donate-btn:hover {
-  background-color: #009bd0;
+  background-color: #f0f0f0;
+  color: black;
 }
 </style>
 
-<a id="paypal-donate-btn" href="https://www.paypal.com/paypalme/mour0ne" target="_blank">
-  💖 Support Me
+<a href="https://www.paypal.com/paypalme/mour0ne" target="_blank" id="paypal-donate-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16">
+    <path d="M8 14s5-3.3 5-8.3S10.5 0 8 3.2 3 0 3 5.7 8 14 8 14z"/>
+  </svg>
+  Support Me
 </a>
-<!-- Notificación compacta moderna desde la derecha -->
+
+
+
+<!-- Notificación desde la derecha -->
 <div id="left-toast">★ Downloading... Please wait...</div>
 
 <style>
