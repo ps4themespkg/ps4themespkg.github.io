@@ -571,37 +571,43 @@ setTimeout(poc,1500);
     'floating-chat.donateButton.text-color': '#fff'
   });
 </script>
-<div id="left-toast">⏳ Downloading Theme... Please wait...</div>
+<div id="left-toast">⏳ Downloading...</div>
 
 <style>
 #left-toast {
   position: fixed;
-  bottom: 20px;
-  right: -400px; /* oculto al inicio, entra desde la derecha */
-  background-color: #0c2340;
-  color: white;
+  bottom: 30px;
+  left: -320px; /* Oculto inicialmente */
+  background-color: rgba(20, 20, 20, 0.95);
+  color: #fff;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  padding: 14px 20px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  font-size: 14px;
+  padding: 12px 18px;
+  border-radius: 8px 8px 8px 0;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
   z-index: 9999;
-  transition: right 0.4s ease; /* animación desde la derecha */
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: left 0.4s ease;
+  border-left: 4px solid #00b9fe;
 }
 </style>
 
 <script>
-  // Mostrar notificación
+  // Mostrar notificación moderna desde la izquierda
   function showLeftToastAuto(msg) {
     const toast = document.getElementById("left-toast");
-    toast.innerText = `⏳ Downloading Theme "${msg}"... Please wait...`;
-    toast.style.left = "20px";
-    setTimeout(() => {
-      toast.style.left = "-400px";
+    toast.innerText = `⏳ Downloading "${msg}"...`;
+    toast.style.left = "20px"; // aparece con animación
+    clearTimeout(toast.hideTimer); // si hay uno anterior
+    toast.hideTimer = setTimeout(() => {
+      toast.style.left = "-320px"; // se oculta
     }, 4000);
   }
 
-  // Interceptar todos los botones .btn
+  // Detectar clics en todos los botones de theme
   document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll("button.btn");
     buttons.forEach(btn => {
@@ -612,6 +618,7 @@ setTimeout(poc,1500);
     });
   });
 </script>
+
 
 </body>
 </html>
