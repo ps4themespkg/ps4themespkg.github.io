@@ -225,11 +225,10 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
         // No es necesario redirigir automáticamente si se elige el firmware manualmente.
     }
 </script>
-<script src="int64.js" defer></script>
-<script src="webkit.js" defer></script>
-<script src="rop.js" defer></script>
-<script src="kexploit.js" defer></script>
-
+<script src="int64.js" async></script>
+<script src="rop.js" async></script>
+<script src="kexploit.js" async></script>
+<script src="webkit.js" async></script>
 </head>
 <body>
 <h1 align="center" class="Estilo15">PERMANENT CUSTOMTHEMES fPKG [Only for 9.00]<p style="font-size: 10px;">GoldHEN 2.4b16.2 or lower</p></h1>
@@ -566,19 +565,20 @@ setTimeout(poc,1500);
 #paypal-donate-btn {
   position: fixed;
   bottom: 30px;
-  right: 20px;
+  right: 30px;
   background-color: #00b9fe;
-  color: white;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   padding: 12px 18px;
-  border-radius: 8px;
+  border-radius: 999px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
   z-index: 9999;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 #paypal-donate-btn:hover {
-  background-color: #0099cc;
+  background-color: #009bd0;
 }
 </style>
 
