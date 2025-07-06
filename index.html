@@ -56,7 +56,17 @@ html, body {
 }
 
 body {
-  background-image: 
+  body {
+  background-image: url('https://github.com/ps4themespkg/ps4themespkg.github.io/blob/main/wallpaper-ps4themeswebsite.png?raw=true');
+  background-color: #0030a1;
+  background-position: center 5%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+}
+ 
   background-color: #0030a1;
   background-position: center 5%; /* Cambia el 20% a lo que necesites */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -572,22 +582,22 @@ setTimeout(poc,1500);
   });
 </script>
 <!-- Notificación compacta moderna desde la derecha -->
-<div id="left-toast">★ Downloading...</div>
+<div id="left-toast">★ Downloading... Please wait...</div>
 
 <style>
 #left-toast {
   position: fixed;
   bottom: 30px;
-  right: -320px; /* Oculto al inicio */
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
-  color: #000; /* Texto negro */
+  right: -320px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   padding: 12px 18px;
   border-radius: 8px 0 0 8px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
   z-index: 9999;
-  max-width: 280px;
+  max-width: 240px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -595,15 +605,16 @@ setTimeout(poc,1500);
   border-right: 4px solid #00b9fe;
 }
 </style>
-<script>
-  function showLeftToastAuto(msg) {
-    const toast = document.getElementById("left-toast");
-    toast.innerText = `★ Downloading "${msg}"... Please wait...`;
-    toast.style.right = "20px"; // Aparece desde la derecha
 
-    clearTimeout(toast.hideTimer); // Reinicia si ya hay uno activo
+<script>
+  function showLeftToastAuto() {
+    const toast = document.getElementById("left-toast");
+    toast.innerText = `★ Downloading... Please wait...`;
+    toast.style.right = "20px";
+
+    clearTimeout(toast.hideTimer);
     toast.hideTimer = setTimeout(() => {
-      toast.style.right = "-320px"; // Oculta
+      toast.style.right = "-320px";
     }, 4000);
   }
 
@@ -611,8 +622,7 @@ setTimeout(poc,1500);
     const buttons = document.querySelectorAll("button.btn");
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
-        const text = btn.querySelector("p")?.textContent?.trim() || "Theme";
-        showLeftToastAuto(text);
+        showLeftToastAuto(); // ya no envía el texto del theme
       });
     });
   });
