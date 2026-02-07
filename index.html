@@ -159,29 +159,36 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #0030a1;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a3a 100%);
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(0, 150, 255, 0.2),
+                inset 0 0 20px rgba(0, 150, 255, 0.1);
             z-index: 1000;
             text-align: center;
             max-width: 90%;
-            width: 500px;
+            width: 550px;
+            overflow: hidden;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         #customDialog button {
             margin: 10px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
         #customDialog #firmware900 {
-            background-color: black;
+            background: linear-gradient(145deg, #000000, #333333);
             color: white;
         }
         #customDialog #firmware1100 {
-            background-color: black;
+            background: linear-gradient(145deg, #000000, #333333);
             color: white;
         }
         #overlay {
@@ -191,55 +198,218 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background: radial-gradient(circle at center, rgba(0, 20, 40, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+            backdrop-filter: blur(5px);
             z-index: 999;
         }
         
-        /* Estilos para el diálogo de PC/Móvil */
-        .non-ps4-dialog {
-            background: linear-gradient(145deg, #1a1a3a, #0a0a2a);
-            border: 2px solid #ff3333;
-            padding: 25px;
+        /* Diálogo para PC/Móvil - Diseño Mejorado */
+        .ps4-access-dialog {
+            padding: 0;
         }
-        .non-ps4-dialog h2 {
-            color: #ff3333;
-            margin-top: 0;
-            font-size: 24px;
-            margin-bottom: 20px;
+        .ps4-access-header {
+            background: linear-gradient(90deg, #0066ff 0%, #00ccff 100%);
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .non-ps4-dialog p {
+        .ps4-access-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 0.1; }
+        }
+        .ps4-access-header h2 {
             color: white;
-            font-size: 16px;
-            line-height: 1.6;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        .ps4-icon {
+            font-size: 40px;
             margin-bottom: 15px;
+            display: block;
+            text-shadow: 0 0 20px #00aaff;
         }
-        .non-ps4-dialog .url-box {
-            background: black;
-            padding: 12px;
-            border-radius: 6px;
-            font-family: monospace;
+        .ps4-access-content {
+            padding: 30px;
+            background: rgba(10, 15, 30, 0.8);
+        }
+        .access-message {
+            color: #e0e0e0;
             font-size: 18px;
-            color: #00ff00;
-            margin: 15px 0;
-            border: 1px solid #00ff00;
-            word-break: break-all;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: center;
         }
-        .non-ps4-dialog .requirements {
-            color: #ffff80;
+        .access-steps {
+            background: rgba(0, 30, 60, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #0066ff;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: white;
+            text-align: left;
+        }
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #0066ff, #00aaff);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-text {
+            flex: 1;
+            font-size: 16px;
+        }
+        .ps4-url-container {
+            margin: 25px 0;
+            position: relative;
+        }
+        .ps4-url {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00aaff;
+            border-radius: 10px;
+            padding: 18px;
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            color: #00ff88;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 0 20px rgba(0, 170, 255, 0.3),
+                inset 0 0 10px rgba(0, 170, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .ps4-url::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(0, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shine 3s infinite linear;
+            transform: rotate(45deg);
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        .ps4-url:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 30px rgba(0, 170, 255, 0.5),
+                inset 0 0 15px rgba(0, 170, 255, 0.2);
+        }
+        .requirements-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .requirements-title {
+            color: #ffd700;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .requirements-list {
+            color: #ffcc66;
             font-size: 14px;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #444;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .requirements-list li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .requirements-list li::before {
+            content: '✓';
+            color: #00ff00;
+            margin-right: 10px;
+            font-weight: bold;
         }
         #closeNonPS4 {
-            background: #ff3333;
+            background: linear-gradient(135deg, #ff3366, #ff6699);
             color: white;
-            padding: 12px 30px;
-            font-size: 16px;
-            margin-top: 20px;
+            padding: 14px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
         }
         #closeNonPS4:hover {
-            background: #ff5555;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.5);
+            background: linear-gradient(135deg, #ff4477, #ff77aa);
+        }
+        #closeNonPS4:active {
+            transform: translateY(0);
+        }
+        
+        /* Botones deshabilitados en PC */
+        .pc-disabled .btn {
+            opacity: 0.5;
+            filter: grayscale(70%) brightness(0.7);
+            cursor: not-allowed;
+            pointer-events: none;
+            position: relative;
+        }
+        .pc-disabled .btn::before {
+            content: '🔒 PS4 Only';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 10;
+            white-space: nowrap;
         }
     </style>
 <!-- Cuadro de diálogo personalizado -->
@@ -274,13 +444,13 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
     // Función para mostrar diálogo PS4 (9.00 vs 11.00)
     function showPS4Dialog() {
         document.getElementById('customDialog').innerHTML = `
-            <div style="padding: 20px;">
-                <h2 style="color: yellow; margin-top: 0;">⚠️ Please choose your firmware version:</h2>
-                <div style="margin: 25px 0;">
-                    <button id="firmware900" style="background: linear-gradient(145deg, #000000, #333333); color: white; padding: 15px 30px; font-size: 18px;">Firmware 9.00</button>
-                    <button id="firmware1100" style="background: linear-gradient(145deg, #000000, #333333); color: white; padding: 15px 30px; font-size: 18px;">Firmware 11.00-12.52</button>
+            <div style="padding: 30px;">
+                <h2 style="color: yellow; margin-top: 0; font-size: 28px;">⚠️ Please choose your firmware version:</h2>
+                <div style="margin: 30px 0;">
+                    <button id="firmware900" style="background: linear-gradient(145deg, #000000, #333333); color: white; padding: 15px 30px; font-size: 18px; margin: 10px;">Firmware 9.00</button>
+                    <button id="firmware1100" style="background: linear-gradient(145deg, #000000, #333333); color: white; padding: 15px 30px; font-size: 18px; margin: 10px;">Firmware 11.00-12.52</button>
                 </div>
-                <p style="color: #cccccc; font-size: 14px;">Select 9.00 for this page or 11.00+ for newer firmware support</p>
+                <p style="color: #cccccc; font-size: 16px;">Select 9.00 for this page or 11.00+ for newer firmware support</p>
             </div>
         `;
         document.getElementById('customDialog').style.display = 'block';
@@ -299,25 +469,47 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
     // Función para mostrar diálogo PC/Móvil
     function showNonPS4Dialog() {
         document.getElementById('customDialog').innerHTML = `
-            <div class="non-ps4-dialog">
-                <h2>⚠️ Only available on PS4</h2>
-                <p>This website is designed <strong>exclusively</strong> for PlayStation 4 jailbreak.</p>
-                <p><strong>To access these themes:</strong></p>
-                <ol style="text-align: left; color: white; padding-left: 20px;">
-                    <li>Open the browser on your PS4</li>
-                    <li>Enter the following URL in the address bar:</li>
-                </ol>
-                <div class="url-box">ps4themespkg.github.io</div>
-                <p>Or scan this QR code with your PS4 browser:</p>
-                <div style="margin: 15px 0; background: white; padding: 10px; display: inline-block; border-radius: 8px;">
-                    <div style="width: 150px; height: 150px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #333;">
-                        [QR Code Placeholder]<br>Scan with PS4
+            <div class="ps4-access-dialog">
+                <div class="ps4-access-header">
+                    <div class="ps4-icon">🎮</div>
+                    <h2>⚠️ PlayStation 4 Exclusive</h2>
+                </div>
+                
+                <div class="ps4-access-content">
+                    <p class="access-message">
+                        This content is <strong>exclusively available</strong> on PlayStation 4 with custom firmware.
+                    </p>
+                    
+                    <div class="access-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">Turn on your PlayStation 4</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">Open the web browser application</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">Enter this exact URL in the address bar:</div>
+                        </div>
                     </div>
+                    
+                    <div class="ps4-url-container">
+                        <div class="ps4-url">ps4themespkg.github.io</div>
+                    </div>
+                    
+                    <div class="requirements-box">
+                        <div class="requirements-title">System Requirements:</div>
+                        <ul class="requirements-list">
+                            <li>PS4 with Firmware 9.00</li>
+                            <li>GoldHEN 2.4b16.2 or lower activated</li>
+                            <li>Active internet connection</li>
+                        </ul>
+                    </div>
+                    
+                    <button id="closeNonPS4">Close Window</button>
                 </div>
-                <div class="requirements">
-                    <strong>Requirements:</strong> PS4 with firmware 9.00 + GoldHEN 2.4b16.2 or lower activated
-                </div>
-                <button id="closeNonPS4">Close</button>
             </div>
         `;
         document.getElementById('customDialog').style.display = 'block';
@@ -347,9 +539,9 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
             setTimeout(() => {
                 const buttons = document.querySelectorAll('button.btn');
                 buttons.forEach(btn => {
-                    btn.style.opacity = '0.6';
+                    btn.style.opacity = '0.5';
+                    btn.style.filter = 'grayscale(70%) brightness(0.7)';
                     btn.style.cursor = 'not-allowed';
-                    btn.style.filter = 'grayscale(70%)';
                     const originalOnClick = btn.onclick;
                     btn.onclick = function(e) {
                         e.preventDefault();
@@ -357,6 +549,23 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
                         showNonPS4Dialog();
                         return false;
                     };
+                    
+                    // Añadir indicador visual
+                    const lockIndicator = document.createElement('div');
+                    lockIndicator.innerHTML = '🔒 PS4 Only';
+                    lockIndicator.style.position = 'absolute';
+                    lockIndicator.style.top = '50%';
+                    lockIndicator.style.left = '50%';
+                    lockIndicator.style.transform = 'translate(-50%, -50%)';
+                    lockIndicator.style.background = 'rgba(255, 0, 0, 0.8)';
+                    lockIndicator.style.color = 'white';
+                    lockIndicator.style.padding = '5px 10px';
+                    lockIndicator.style.borderRadius = '5px';
+                    lockIndicator.style.fontSize = '14px';
+                    lockIndicator.style.zIndex = '10';
+                    lockIndicator.style.whiteSpace = 'nowrap';
+                    btn.style.position = 'relative';
+                    btn.appendChild(lockIndicator);
                 });
             }, 100);
         }
