@@ -165,6 +165,8 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             text-align: center;
+            max-width: 90%;
+            width: 500px;
         }
         #customDialog button {
             margin: 10px;
@@ -172,6 +174,7 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
         }
         #customDialog #firmware900 {
             background-color: black;
@@ -188,16 +191,61 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 999;
+        }
+        
+        /* Estilos para el diálogo de PC/Móvil */
+        .non-ps4-dialog {
+            background: linear-gradient(145deg, #1a1a3a, #0a0a2a);
+            border: 2px solid #ff3333;
+            padding: 25px;
+        }
+        .non-ps4-dialog h2 {
+            color: #ff3333;
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .non-ps4-dialog p {
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .non-ps4-dialog .url-box {
+            background: black;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 18px;
+            color: #00ff00;
+            margin: 15px 0;
+            border: 1px solid #00ff00;
+            word-break: break-all;
+        }
+        .non-ps4-dialog .requirements {
+            color: #ffff80;
+            font-size: 14px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+        }
+        #closeNonPS4 {
+            background: #ff3333;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        #closeNonPS4:hover {
+            background: #ff5555;
         }
     </style>
 <!-- Cuadro de diálogo personalizado -->
 <div id="overlay"></div>
 <div id="customDialog">
-    <p>⚠️ Please choose your firmware version:</p>
-    <button id="firmware900">Firmware 9.00</button>
-    <button id="firmware1100">Firmware 11.00-12.52</button>
+    <!-- El contenido se llenará dinámicamente -->
 </div>
 <script type="text/javascript">
   // Verificar si la redirección ya ha ocurrido
@@ -212,50 +260,127 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
   }
 </script>
 <script>
-    // Función para mostrar el cuadro de diálogo personalizado
-    function showCustomDialog() {
-        document.getElementById('customDialog').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
+    // Función para detectar navegador PS4
+    function isPS4Browser() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        // Detectar PS4 por User-Agent
+        return userAgent.includes('playstation 4') || 
+               userAgent.includes('ps4') || 
+               userAgent.includes('scee') ||
+               (userAgent.includes('mozilla') && userAgent.includes('webkit') && navigator.platform === '') ||
+               userAgent.includes('playstation');
     }
 
-    // Mostrar el cuadro de diálogo para que el usuario elija entre 9.00 y 11.00
-    showCustomDialog();
+    // Función para mostrar diálogo PS4 (9.00 vs 11.00)
+    function showPS4Dialog() {
+        document.getElementById('customDialog').innerHTML = `
+            <div style="padding: 20px;">
+                <h2 style="color: yellow; margin-top: 0;">⚠️ Please choose your firmware version:</h2>
+                <div style="margin: 25px 0;">
+                    <button id="firmware900" style="background: linear-gradient(145deg, #000000, #333333); color: white; padding: 15px 30px; font-size: 18px;">Firmware 9.00</button>
+                    <button id="firmware1100" style="background: linear-gradient(145deg, #000000, #333333); color: white; padding: 15px 30px; font-size: 18px;">Firmware 11.00-12.52</button>
+                </div>
+                <p style="color: #cccccc; font-size: 14px;">Select 9.00 for this page or 11.00+ for newer firmware support</p>
+            </div>
+        `;
+        document.getElementById('customDialog').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+        
+        // Configurar eventos para PS4
+        document.getElementById('firmware900').addEventListener('click', function() {
+            closeDialog();
+        });
+        
+        document.getElementById('firmware1100').addEventListener('click', function() {
+            window.location.href = "http://storepkg.com/1100/index.html";
+        });
+    }
+
+    // Función para mostrar diálogo PC/Móvil
+    function showNonPS4Dialog() {
+        document.getElementById('customDialog').innerHTML = `
+            <div class="non-ps4-dialog">
+                <h2>⚠️ Only available on PS4</h2>
+                <p>This website is designed <strong>exclusively</strong> for PlayStation 4 jailbreak.</p>
+                <p><strong>To access these themes:</strong></p>
+                <ol style="text-align: left; color: white; padding-left: 20px;">
+                    <li>Open the browser on your PS4</li>
+                    <li>Enter the following URL in the address bar:</li>
+                </ol>
+                <div class="url-box">ps4themespkg.github.io</div>
+                <p>Or scan this QR code with your PS4 browser:</p>
+                <div style="margin: 15px 0; background: white; padding: 10px; display: inline-block; border-radius: 8px;">
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #333;">
+                        [QR Code Placeholder]<br>Scan with PS4
+                    </div>
+                </div>
+                <div class="requirements">
+                    <strong>Requirements:</strong> PS4 with firmware 9.00 + GoldHEN 2.4b16.2 or lower activated
+                </div>
+                <button id="closeNonPS4">Close</button>
+            </div>
+        `;
+        document.getElementById('customDialog').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+        
+        document.getElementById('closeNonPS4').addEventListener('click', function() {
+            closeDialog();
+        });
+    }
+
+    // Función para cerrar diálogo
+    function closeDialog() {
+        document.getElementById('customDialog').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    // Detectar y mostrar el diálogo correspondiente al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        if (isPS4Browser()) {
+            console.log("PS4 Browser detected - showing firmware selector");
+            showPS4Dialog();
+        } else {
+            console.log("Non-PS4 Browser detected - showing warning");
+            showNonPS4Dialog();
+            
+            // Deshabilitar botones de descarga en PC/móvil
+            setTimeout(() => {
+                const buttons = document.querySelectorAll('button.btn');
+                buttons.forEach(btn => {
+                    btn.style.opacity = '0.6';
+                    btn.style.cursor = 'not-allowed';
+                    btn.style.filter = 'grayscale(70%)';
+                    const originalOnClick = btn.onclick;
+                    btn.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showNonPS4Dialog();
+                        return false;
+                    };
+                });
+            }, 100);
+        }
+    });
 
     var histlength = history.length;
     history.go(-histlength);
     var req = new XMLHttpRequest();
     req.open("GET", "http://127.0.0.1:9090/status");
     req.send();
-    req.onload = function () {
+    req.onload = function() {
         if (window.applicationCache.status != '0') {
             sessionStorage.blSERVER = "yes";
             myredirect();
         }
     }
-    req.onerror = function () {
+    req.onerror = function() {
         if (window.applicationCache.status != '0') {
             myredirect();
         }
     }
 
-    // Función para cerrar el cuadro de diálogo y continuar en la página actual
-    function closeDialog() {
-        document.getElementById('customDialog').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
-
-    // Si elige Firmware 9.00, cerramos el diálogo y continuamos en la misma página
-    document.getElementById('firmware900').addEventListener('click', function () {
-        closeDialog();  // Cerrar el cuadro de diálogo y continuar navegando
-    });
-
-    // Si elige Firmware 11.00, redirigimos a una URL específica
-    document.getElementById('firmware1100').addEventListener('click', function () {
-        window.location.href = "http://storepkg.com/1100/index.html";  // URL para firmware 11.00
-    });
-
     function myredirect() {
-        // No es necesario redirigir automáticamente si se elige el firmware manualmente.
+        // Función de redirección si es necesario
     }
 </script>
 <script src="int64.js" async></script>
@@ -687,9 +812,3 @@ setTimeout(poc,1500);
 
 </body>
 </html>
-
-
-
-
-
-
