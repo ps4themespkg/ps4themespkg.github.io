@@ -152,58 +152,141 @@ img[alt="www.000webhost.com"]{display:none;}.Estilo1 {font-size: 18px}
 .Estilo17 {font-family: Verdana, Arial, Helvetica, sans-serif}
 .Estilo18 {font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; }
 </style><style>
-        /* Estilos para el cuadro de diálogo personalizado */
-        #customDialog {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a3a 100%);
-            padding: 0;
-            border-radius: 20px;
-            box-shadow: 
-                0 20px 50px rgba(0, 0, 0, 0.8),
-                0 0 0 1px rgba(0, 150, 255, 0.2),
-                inset 0 0 20px rgba(0, 150, 255, 0.1);
-            z-index: 1000;
-            text-align: center;
-            max-width: 90%;
-            width: 550px;
-            overflow: hidden;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        #customDialog button {
-            margin: 10px;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        #customDialog #firmware900 {
-            background: linear-gradient(145deg, #000000, #333333);
-            color: white;
-        }
-        #customDialog #firmware1100 {
-            background: linear-gradient(145deg, #000000, #333333);
-            color: white;
-        }
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 20, 40, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
-            backdrop-filter: blur(5px);
-            z-index: 999;
-        }
+     #customDialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #0a0a2a 0%, #1a1a3a 100%);
+    padding: 40px 30px !important;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(0, 150, 255, 0.2),
+        inset 0 0 20px rgba(0, 150, 255, 0.1);
+    z-index: 1000;
+    text-align: center;
+    max-width: 90%;
+    width: 550px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Título del diálogo de firmware */
+#customDialog h2 {
+    color: #00ccff !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    text-shadow: 0 0 15px rgba(0, 204, 255, 0.5) !important;
+}
+
+/* Texto descriptivo */
+#customDialog p {
+    color: #cccccc !important;
+    font-size: 16px !important;
+    margin-bottom: 40px !important;
+}
+
+/* Contenedor de botones */
+#customDialog div[style*="margin: 30px 0"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin: 30px 0 !important;
+}
+
+/* Botones de firmware - ESTILOS MEJORADOS */
+#customDialog button {
+    margin: 0 !important;
+    padding: 20px 40px !important;
+    border: none !important;
+    border-radius: 15px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+}
+
+/* Efecto de brillo en botones */
+#customDialog button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    ) !important;
+    transition: left 0.6s !important;
+}
+
+/* Botón 9.00 */
+#firmware900 {
+    background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%) !important;
+    color: white !important;
+}
+
+/* Botón 11.00 */
+#firmware1100 {
+    background: linear-gradient(135deg, #333333 0%, #666666 100%) !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover para ambos botones */
+#customDialog button:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0, 102, 204, 0.5) !important;
+}
+
+#customDialog button:hover::before {
+    left: 100% !important;
+}
+
+/* Hover específico para 9.00 */
+#firmware900:hover {
+    background: linear-gradient(135deg, #0088ff 0%, #00aaff 100%) !important;
+}
+
+/* Hover específico para 11.00 */
+#firmware1100:hover {
+    background: linear-gradient(135deg, #444444 0%, #777777 100%) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Active state */
+#customDialog button:active {
+    transform: translateY(-2px) !important;
+}
+
+/* Mantén el overlay igual */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 20, 40, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
         
-        /* Diálogo para PC/Móvil - Diseño Mejorado */
+
+
+
+        /* Diálogo para PC/Móvil /
         .ps4-access-dialog {
             padding: 0;
         }
